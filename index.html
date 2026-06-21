@@ -18,7 +18,6 @@
         /* 🌌 메인 로비 & 홀로그램 */
         #introScreen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 100; transition: opacity 0.5s; overflow: hidden;}
         #holoCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
-        
         .warp-active { animation: warpIn 1.2s cubic-bezier(0.7,0,0.3,1) forwards !important; }
         @keyframes warpIn { 0% { transform: scale(1); filter: blur(0px); opacity: 1; } 100% { transform: scale(10); filter: blur(30px); opacity: 0; } }
 
@@ -40,7 +39,6 @@
         .btn-side { position: relative; background: rgba(10, 15, 25, 0.7); color: #fff; font-size: 1.1rem; font-weight: 900; padding: 15px 25px; border: 1px solid #444; border-radius: 8px; cursor: pointer; transition: 0.3s; backdrop-filter: blur(5px); text-align: left; width: 220px; font-family: 'Orbitron', 'Noto Sans KR', sans-serif; }
         .btn-side:hover { background: rgba(0, 243, 255, 0.2); border-color: #00f3ff; box-shadow: 0 0 15px rgba(0,243,255,0.4); transform: scale(1.05); }
         .btn-side.right-align { text-align: right; }
-        
         .red-dot { position: absolute; top: -5px; right: -5px; width: 14px; height: 14px; background-color: #ff0055; border-radius: 50%; box-shadow: 0 0 10px #ff0055; display: none; animation: slowBlink 1s infinite; border: 2px solid #000; }
         @keyframes slowBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
@@ -66,7 +64,7 @@
         .items-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px; }
         .item-card { background: #000; border: 1px solid #333; padding: 15px; border-radius: 10px; display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s; }
         .item-card:hover { border-color: #00f3ff; box-shadow: 0 0 15px rgba(0,243,255,0.3); transform: translateY(-5px); }
-        .item-name { color: #fff; font-weight: bold; font-size: 1.1rem; margin-bottom: 5px; } .item-desc { color: #888; font-size: 0.85rem; margin-bottom: 10px; height: 40px; }
+        .item-name { color: #fff; font-weight: bold; font-size: 1.1rem; margin-bottom: 5px; text-align:center;} .item-desc { color: #888; font-size: 0.85rem; margin-bottom: 10px; height: 40px; text-align:center;}
         .item-stat { font-size: 0.8rem; color: #aaa; background: #111; padding: 5px; margin-bottom: 10px; border-radius: 4px; text-align: center; border: 1px solid #222;}
         .btn-action { background: #222; color: #fff; border: 1px solid #555; padding: 12px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.2s; font-family: 'Noto Sans KR', sans-serif;}
         .btn-action:hover:not(:disabled) { background: #444; border-color: #fff; } .btn-action.owned { background: #00f3ff; color: #000; border:none; } .btn-action.equipped { background: #00ff88; color: #000; border:none; } .btn-action:disabled { background: #111; color: #555; cursor: not-allowed; border: 1px solid #222; }
@@ -77,9 +75,7 @@
         .pass-card { min-width: 180px; background: #111; border: 2px solid #333; border-radius: 12px; padding: 20px; text-align: center; flex-shrink: 0; transition: 0.3s; position: relative; }
         .pass-card.unlocked { border-color: #ffd700; box-shadow: 0 0 15px rgba(255,215,0,0.2); }
         .pass-req { font-family: 'Orbitron', sans-serif; font-size: 1.2rem; color: #00f3ff; font-weight: bold; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px;}
-        .pass-reward { color: #fff; font-weight: bold; margin-bottom: 20px; font-size: 1rem; height: 30px; display: flex; align-items: center; justify-content: center; }
-        .btn-claim { background: #333; color: #777; padding: 10px; border: none; border-radius: 5px; font-weight: bold; cursor: not-allowed; width: 100%; transition: 0.3s; }
-        .btn-claim.ready { background: #ffd700; color: #000; cursor: pointer; box-shadow: 0 0 15px #ffd700; animation: slowBlink 1s infinite; }
+        .pass-reward { display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 15px; height: 80px;}
         
         .research-row { display: flex; justify-content: space-between; align-items: center; background: #111; border: 1px solid #333; padding: 15px; margin-bottom: 10px; border-radius: 8px; transition: 0.2s;}
         .research-row:hover { border-color: #ff8c00; box-shadow: 0 0 15px rgba(255,140,0,0.2); }
@@ -89,6 +85,7 @@
         .setting-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding: 15px; background: #1a1a1a; border-radius: 8px; flex-wrap: wrap;}
         input[type=range] { width: 50%; cursor: pointer; accent-color: #00f3ff; }
         select { background: #000; color: #00f3ff; border: 1px solid #00f3ff; padding: 10px; border-radius: 5px; font-family: 'Noto Sans KR', sans-serif; font-weight: bold; cursor: pointer;}
+        input[type=checkbox] { width: 20px; height: 20px; accent-color: #00f3ff; cursor: pointer;}
         input[type=text], textarea { width: 100%; padding: 15px; background: #000; color: #00f3ff; border: 1px solid #00f3ff; border-radius: 5px; margin-bottom: 10px; font-family: monospace; box-sizing: border-box; }
 
         /* 🎮 인게임 UI */
@@ -97,7 +94,6 @@
         #stageDisplay { font-size: 26px; font-weight: 900; color: #ffd700; text-shadow: 0 0 15px #ffd700; margin-bottom: 5px;}
         #scoreDisplay, #healthDisplay, #ammoDisplay { font-size: 20px; font-weight: 900; color: #fff; margin-top: 5px; }
         #healthDisplay { color: #ff0055; text-shadow: 0 0 10px rgba(255,0,85,0.5); }
-        
         .bars-container { width: 40%; max-width: 400px; margin: 0 auto; text-align: center; }
         #levelDisplay { color: #00f3ff; font-weight: 900; font-size: 1.3rem; margin-bottom: 5px; text-shadow: 0 0 10px #00f3ff; }
         .bar-wrap { height: 14px; background: #222; border: 2px solid #444; border-radius: 7px; overflow: hidden; position: relative; margin-bottom: 8px; }
@@ -108,7 +104,6 @@
         #notificationUI { position: absolute; top: 30%; left: 50%; transform: translateX(-50%); color: #ffd700; font-size: 1.5rem; font-weight: 900; opacity: 0; transition: 0.3s; z-index: 50; text-shadow: 0 0 15px #ffd700; }
         #bossWarning { position: absolute; top: 30%; left: 50%; transform: translateX(-50%); font-size: 4rem; font-weight: 900; color: #ff0055; text-shadow: 0 0 30px #ff0055; display: none; z-index: 20; animation: slowBlink 0.5s infinite; text-align: center; }
         #ultReadyText { position: absolute; top: 60%; left: 50%; transform: translateX(-50%); font-size: 2.5rem; font-weight: 900; color: #ff0055; text-shadow: 0 0 20px #ff0055; opacity: 0; transition: 0.3s; z-index: 15; }
-
         #pauseBtn { position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.5); color:#fff; border:2px solid #555; padding:10px 20px; font-weight:bold; font-family:'Orbitron'; font-size:1.2rem; cursor:pointer; border-radius:5px; z-index: 20; pointer-events: auto; display: none; backdrop-filter: blur(5px); }
         .joystick-zone { position: absolute; bottom: 40px; width: 140px; height: 140px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; z-index: 15; display: none; pointer-events: auto; }
         #joystick-left { left: 40px; } #joystick-right { right: 40px; }
@@ -118,7 +113,6 @@
         
         .in-game-modal { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: none; flex-direction: column; justify-content: center; align-items: center; z-index: 250; pointer-events: auto; backdrop-filter: blur(5px);}
         .in-game-content { background: #050505; padding: 40px; border-radius: 10px; border: 2px solid #00f3ff; text-align: center; box-shadow: 0 0 30px rgba(0,243,255,0.3); max-width: 90%; }
-        .in-game-content h1 { color: #00f3ff; font-family: 'Orbitron'; font-size: 3rem; margin-top: 0; text-shadow: 0 0 15px #00f3ff; }
         .upgrade-card { background: #111; border: 1px solid #00f3ff; border-radius: 8px; padding: 20px; width: 200px; cursor: pointer; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
         .upgrade-card:hover { transform: translateY(-10px); background: #00f3ff; color: #000; box-shadow: 0 0 20px #00f3ff; }
         
@@ -133,9 +127,9 @@
 <body>
     <audio id="bgm" src="bgm.mp3" loop></audio>
     <div id="particleContainer"></div>
-
     <div id="studioIntro"><div class="logo-text"><span class="t-white">THR</span><span class="t-e">E</span><span class="t-3">3</span><span class="t-white">RIC</span></div></div>
 
+    <!-- 🌌 메인 로비 -->
     <div id="introScreen" style="display: none;">
         <canvas id="holoCanvas"></canvas>
 
@@ -177,11 +171,12 @@
 
         <div class="news-ticker">
             <div class="ticker-text" id="newsTickerText">
-                [SYSTEM] Project: Ace Pilot V9.7 업데이트 적용 완료! 은하수가 흐르는 새로운 로비를 감상하세요. || [LANG] 환경 설정(Settings)에서 언어를 변경할 수 있습니다. || [NOTICE] 상점에서 자발적 후원을 통해 다이아 잭팟을 노려보세요! (9003259257108 새마을금고)
+                [SYSTEM] Project: Ace Pilot V10.0 Visual Unity 업데이트 적용 완료! 은하수가 흐르는 새로운 로비와 스킨 뷰어를 경험하세요. || [LANG] 설정(Settings)에서 언어 및 배경 효과(Background Effects)를 켜고 끌 수 있습니다.
             </div>
         </div>
     </div>
 
+    <!-- 🛒 상점 -->
     <div id="shopModal" class="full-modal">
         <div class="full-container">
             <div class="modal-header"><h2 id="titleShop" style="color:#ffd700;">BLACK MARKET</h2><div class="close-btn" onclick="closeModal('shopModal')">X</div></div>
@@ -189,24 +184,39 @@
             <button id="gachaBtn" class="btn-action" style="background:linear-gradient(45deg, #00ff88, #00f3ff); color:#000; margin-bottom:30px; font-size:1.2rem; padding:20px; border:none; box-shadow:0 0 20px rgba(0,255,136,0.5);" onclick="playGacha()">
                 💸 자발적 후원 (9003259257108 새마을 금고) / 다이아 가챠
             </button>
-            <div style="color:#fff; margin-bottom:10px; font-size:1.2rem; border-left:4px solid #ff8c00; padding-left:10px;" id="txtUlt">🔥 궁극기</div><div class="items-grid" id="shopUlts"></div>
             <div style="color:#fff; margin-bottom:10px; font-size:1.2rem; border-left:4px solid #00f3ff; padding-left:10px;" id="txtWep">🔫 무기</div><div class="items-grid" id="shopWeapons"></div>
-            <div style="color:#fff; margin-bottom:10px; font-size:1.2rem; border-left:4px solid #00ff88; padding-left:10px;" id="txtSkin">🛡️ 스킨</div><div class="items-grid" id="shopSkins"></div>
+            <div style="color:#fff; margin-bottom:10px; font-size:1.2rem; border-left:4px solid #ff8c00; padding-left:10px;" id="txtUlt">🔥 궁극기</div><div class="items-grid" id="shopUlts"></div>
         </div>
     </div>
 
+    <!-- 🛠️ 격납고 (스킨 쇼룸 형태로 개편) -->
     <div id="hangarModal" class="full-modal">
         <div class="full-container">
             <div class="modal-header"><h2 id="titleHangar" style="color:#00f3ff;">HANGAR</h2><div class="close-btn" onclick="closeModal('hangarModal')">X</div></div>
-            <div style="color:#fff; margin-bottom:10px; border-left:4px solid #ffd700; padding-left:10px;" id="txtTitle">👑 내 칭호 장착</div><div class="items-grid" id="hangarTitles"></div>
-            <div style="color:#fff; margin-bottom:10px; border-left:4px solid #ff8c00; padding-left:10px;" id="txtMyUlt">🔥 내 궁극기</div><div class="items-grid" id="hangarUlts"></div>
+            
+            <!-- 🛡️ 스킨 뷰어 (좌우 넘기기) -->
+            <div style="color:#fff; margin-bottom:10px; border-left:4px solid #00ff88; padding-left:10px; font-size:1.2rem;" id="txtMySkin">🛡️ 스킨 뷰어 (Skin Viewer)</div>
+            <div style="display:flex; justify-content:center; align-items:center; margin-bottom:30px; background:#111; border:1px solid #333; border-radius:10px; padding:20px;">
+                <button class="btn-action" style="width:50px; font-size:1.5rem;" onclick="prevSkin()">◀</button>
+                <div style="margin: 0 30px; text-align:center; width:220px;">
+                    <div id="hsPreview" style="height:120px; display:flex; align-items:center; justify-content:center; margin-bottom:10px;"></div>
+                    <div id="hsName" style="font-weight:bold; font-size:1.2rem; color:#fff;"></div>
+                    <div id="hsStat" style="font-size:0.9rem; color:#aaa; margin-bottom:10px; height:20px;"></div>
+                    <button id="hsBtn" class="btn-action">장착</button>
+                </div>
+                <button class="btn-action" style="width:50px; font-size:1.5rem;" onclick="nextSkin()">▶</button>
+            </div>
+
             <div style="color:#fff; margin-bottom:10px; border-left:4px solid #00f3ff; padding-left:10px;" id="txtMyWep">🔫 내 무기</div><div class="items-grid" id="hangarWeapons"></div>
-            <div style="color:#fff; margin-bottom:10px; border-left:4px solid #00ff88; padding-left:10px;" id="txtMySkin">🛡️ 내 스킨</div><div class="items-grid" id="hangarSkins"></div>
+            <div style="color:#fff; margin-bottom:10px; border-left:4px solid #ff8c00; padding-left:10px;" id="txtMyUlt">🔥 내 궁극기</div><div class="items-grid" id="hangarUlts"></div>
+            <div style="color:#fff; margin-bottom:10px; border-left:4px solid #ffd700; padding-left:10px;" id="txtTitle">👑 내 칭호 장착</div><div class="items-grid" id="hangarTitles"></div>
         </div>
     </div>
 
+    <!-- 🧬 연구소 -->
     <div id="researchModal" class="full-modal"><div class="full-container" style="max-width: 600px;"><div class="modal-header"><h2 id="titleResearch" style="color:#ff8c00;">RESEARCH LAB</h2><div class="close-btn" onclick="closeModal('researchModal')">X</div></div><div style="margin-bottom: 20px; font-weight: bold; color: #00f3ff; font-size:1.2rem;">💎 <span class="syncDia">0</span></div><div id="researchList"></div></div></div>
 
+    <!-- 🎟️ 파일럿 패스 -->
     <div id="passModal" class="full-modal">
         <div class="full-container" style="max-width: 900px;">
             <div class="modal-header"><h2 id="titlePass" style="color:#8a2be2;">PILOT PASS</h2><div class="close-btn" onclick="closeModal('passModal')">X</div></div>
@@ -218,21 +228,25 @@
         </div>
     </div>
 
+    <!-- 🏆 업적 & 랭킹 -->
     <div id="achieveModal" class="full-modal"><div class="full-container"><div class="modal-header"><h2 id="titleAchieve" style="color:#ff0055;">ACHIEVEMENTS</h2><div class="close-btn" onclick="closeModal('achieveModal')">X</div></div><div class="items-grid" id="achieveList"></div></div></div>
     <div id="rankModal" class="full-modal"><div class="full-container" style="max-width: 600px;"><div class="modal-header"><h2 id="titleRank" style="color:#fff;">HALL OF FAME</h2><div class="close-btn" onclick="closeModal('rankModal')">X</div></div><div id="rankList"></div></div></div>
 
-    <div id="guideModal" class="full-modal"><div class="full-container"><div class="modal-header"><h2 id="titleGuide">GAME GUIDE</h2><div class="close-btn" onclick="closeModal('guideModal')">X</div></div>
-        <div class="text-panel">
-            <strong style="color:#00f3ff; font-size:1.1rem;">[조작법 / Controls]</strong><br>PC: WASD / Mouse / R / Spacebar / ESC<br>Mobile: Touch Joysticks & Buttons<br><br>
-            <strong style="color:#ffd700; font-size:1.1rem;">[특수 적 / Special Enemies]</strong><br>- 🎯 <b>저격형 몹:</b> 레이저 조준 후 발사<br>- 💨 <b>돌진형 몹:</b> 경로 표시 후 대쉬<br>- ✨ <b>엘리트 몹:</b> 처치 시 업그레이드<br>- 👿 <b>스테이지 보스:</b> 3스테이지마다 등장
-        </div>
-    </div></div>
+    <!-- 📖 가이드 & 패치노트 -->
+    <div id="guideModal" class="full-modal"><div class="full-container"><div class="modal-header"><h2 id="titleGuide">GAME GUIDE</h2><div class="close-btn" onclick="closeModal('guideModal')">X</div></div><div class="text-panel">
+        <strong style="color:#00f3ff; font-size:1.1rem;">[조작법 / Controls]</strong><br>PC: WASD / Mouse / R / Spacebar / ESC<br>Mobile: Touch Joysticks & Buttons<br><br><strong style="color:#ffd700; font-size:1.1rem;">[특수 적 / Special Enemies]</strong><br>- 🎯 <b>저격형 몹:</b> 레이저 조준 후 발사<br>- 💨 <b>돌진형 몹:</b> 경로 표시 후 대쉬<br>- ✨ <b>엘리트 몹:</b> 처치 시 업그레이드<br>- 👿 <b>스테이지 보스:</b> 3스테이지마다 등장
+    </div></div></div>
 
     <div id="patchModal" class="full-modal"><div class="full-container"><div class="modal-header"><h2 id="titlePatch" style="color:#00ff88;">PATCH NOTES</h2><div class="close-btn" onclick="closeModal('patchModal')">X</div></div>
         <div class="text-panel" style="text-align: left; max-height: 500px; overflow-y: auto;">
-            <strong style="color:#00ff88; font-size: 1.3rem;">[NEW] V9.7: Galaxy & Localization ✨</strong><br>
-            - <b>[비주얼]</b> 메인 로비에 은하수(Milky Way), 별똥별(혜성), 그리고 비행하는 우주선 배경 효과 추가!<br>
-            - <b>[시스템]</b> 설정(Settings) 메뉴에 언어 변경(한국어 / 기본(Mixed)) 기능 추가<br><br>
+            <strong style="color:#00ff88; font-size: 1.3rem;">[NEW] V10.0: Visual Unity ✨</strong><br>
+            - <b>[비주얼]</b> 메인 로비에 은하수(Milky Way), 별똥별(혜성), 그리고 비행하는 우주선 배경 효과 추가<br>
+            - <b>[비주얼]</b> 렌더링 엔진 통합: 인게임 기체, 로비 홀로그램, 상점, 격납고, 패스 화면의 스킨 디자인 완벽 일치<br>
+            - <b>[시스템]</b> 설정(Settings) 메뉴에 언어 변경 및 배경 효과 끄기/켜기 옵션 지원<br>
+            - <b>[격납고]</b> 스킨 뷰어를 좌우 스와이프 형태의 대형 쇼룸 UI로 전면 개편<br>
+            - <b>[패스]</b> 패스 보상 스킨을 텍스트가 아닌 실제 인게임 아이콘(SVG)으로 표시하도록 개선<br>
+            <span style="color:#888;">* 알림: V9.0에서 예고했던 펫(Companion) 업데이트는 게임 최적화를 위해 당분간 연기/취소 되었습니다.</span><br><br>
+            
             <strong style="color:#00f3ff; font-size: 1.2rem;">[PREVIOUS] V9.5: UI/UX Masterpiece</strong><br>
             - 홀로그램 뷰, 엣지 레이아웃, 가로 스크롤 패스, 레드닷 도입<br><br>
             <strong style="color:#ff8c00; font-size: 1.1rem;">[PREVIOUS] V9.0: Project Ace Pilot</strong><br>
@@ -242,6 +256,7 @@
         </div>
     </div></div>
 
+    <!-- ⚙️ 설정 -->
     <div id="settingModal" class="full-modal">
         <div class="full-container" style="max-width: 600px;">
             <div class="modal-header"><h2 id="titleSettings">SETTINGS</h2><div class="close-btn" onclick="closeSettingModal()">X</div></div>
@@ -249,9 +264,13 @@
             <div class="setting-row">
                 <span style="color:#fff; font-weight:bold; font-size:1.1rem;" id="txtLang">언어 (Language)</span>
                 <select id="langSelect" onchange="changeLanguage(this.value)">
-                    <option value="default">기본 (Mixed)</option>
-                    <option value="ko">한국어 (Korean)</option>
+                    <option value="default">기본 (Mixed)</option><option value="ko">한국어 (Korean)</option>
                 </select>
+            </div>
+
+            <div class="setting-row">
+                <span style="color:#fff; font-weight:bold; font-size:1.1rem;" id="txtBgEff">배경 효과 (Background Effects)</span>
+                <input type="checkbox" id="bgEffectToggle" onchange="toggleBgEffect(this.checked)">
             </div>
 
             <div class="setting-row">
@@ -271,6 +290,7 @@
         </div>
     </div>
 
+    <!-- 🎮 인게임 UI & 팝업들 -->
     <div id="ui-layer">
         <div class="bars-container">
             <div id="levelDisplay">LEVEL 1</div>
@@ -288,17 +308,32 @@
     <div id="joystick-left" class="joystick-zone"><div id="knob-left" class="joystick-knob"></div></div><div id="joystick-right" class="joystick-zone"><div id="knob-right" class="joystick-knob"></div></div>
     <div id="mobileReloadBtn" class="mobile-btn" onclick="reload()">R</div><div id="mobileUltBtn" class="mobile-btn" onclick="useUltimate()">ULT</div>
 
-    <div id="pauseModal" class="in-game-modal"><div class="in-game-content" style="border-color:#fff;"><h1 style="color:#fff;">PAUSED</h1><button class="btn-action" style="background:#00f3ff; color:#000; font-size:1.2rem; padding:15px; margin-bottom:10px;" onclick="togglePause()" id="btnResume">RESUME (계속)</button><button class="btn-action" style="background:#555; color:#fff; font-size:1.2rem; padding:15px; margin-bottom:10px;" onclick="openModal('settingModal'); renderSettings();" id="btnPauseSet">SETTINGS (설정)</button><button class="btn-action" style="background:#ff0055; color:#fff; font-size:1.2rem; padding:15px;" onclick="quitGame()" id="btnQuit">QUIT (메인으로)</button></div></div>
+    <div id="pauseModal" class="in-game-modal"><div class="in-game-content" style="border-color:#fff;"><h1 style="color:#fff;">PAUSED</h1><button class="btn-action" style="background:#00f3ff; color:#000; font-size:1.2rem; padding:15px; margin-bottom:10px;" onclick="togglePause()" id="btnResume">RESUME</button><button class="btn-action" style="background:#555; color:#fff; font-size:1.2rem; padding:15px; margin-bottom:10px;" onclick="openModal('settingModal'); renderSettings();" id="btnPauseSet">SETTINGS</button><button class="btn-action" style="background:#ff0055; color:#fff; font-size:1.2rem; padding:15px;" onclick="quitGame()" id="btnQuit">QUIT</button></div></div>
     <div id="upgradeModal" class="in-game-modal"><div class="in-game-content"><h1 id="txtLvlUp">LEVEL UP!</h1><div class="items-grid" id="cardContainer" style="display:flex; justify-content:center; gap:20px;"></div></div></div>
     <div id="gameOverModal" class="in-game-modal"><div class="in-game-content" style="border-color: #ff0055; box-shadow: 0 0 40px rgba(255,0,85,0.4);"><h1 style="color: #ff0055; text-shadow: 0 0 20px #ff0055;">MISSION FAILED</h1><p id="finalScore" style="color: #fff; font-size:1.5rem; font-weight:bold;">최종 처치 수: 0</p><p id="earnedDia" style="color: #00f3ff; font-size:1.2rem; font-weight:bold;">획득 다이아: 0</p><div id="recordSection" style="display:none; margin: 20px 0; padding:15px; border:2px dashed #ffd700; border-radius:10px;"><p style="color:#ffd700; font-weight:bold; margin-top:0;">🎉 랭킹 진입!</p><input type="text" id="playerName" placeholder="닉네임 (3~8자)" maxlength="8" style="text-align:center; font-size:1.2rem;"><button class="btn-action" style="background:#ffd700; color:#000; font-size:1.1rem; padding:10px;" onclick="submitScore()">기록 등록</button></div><button id="btnGoMain" class="btn-action" style="background:#444; color:#fff; font-size:1.2rem; padding:15px; margin-top:10px;" onclick="respawnToMain()">메인으로 귀환</button></div></div>
 
     <canvas id="gameCanvas"></canvas>
 
     <script>
+        // --- 시각적 일관성 통합 (Skin Drawing Logic) ---
+        function getSkinSVG(skinId, size=80) {
+            let color = '#fff'; let pts = "54,30 14,46 24,30 14,14";
+            if(skinId==='vip') color = '#ffd700'; else if(skinId==='ghost') { color = '#555'; pts = "50,30 10,50 20,30 10,10"; } else if(skinId==='neon_rider') { color = '#ff0055'; pts = "55,30 15,40 25,30 15,20"; } else if(skinId==='shield') color = '#00f3ff';
+            let shieldStr = (skinId==='shield') ? `<circle cx="30" cy="30" r="26" fill="none" stroke="#00f3ff" stroke-width="2"/>` : '';
+            return `<svg width="${size}" height="${size}" viewBox="0 0 60 60" style="filter: drop-shadow(0 0 10px ${color}); overflow:visible;"><polygon points="${pts}" fill="#111" stroke="${color}" stroke-width="2"/><circle cx="28" cy="30" r="4" fill="${skinId==='neon_rider'?'#fff':'#00f3ff'}"/></svg>${shieldStr ? `<svg width="${size}" height="${size}" viewBox="0 0 60 60" style="position:absolute; top:0; left:0; filter: drop-shadow(0 0 5px #00f3ff);">${shieldStr}</svg>` : ''}`;
+        }
+        function drawSkinCanvas(ctx, skinId, isHolo, hasShield) {
+            let color = '#fff'; if(skinId==='vip') color = '#ffd700'; else if(skinId==='ghost') color = '#555'; else if(skinId==='neon_rider') color = '#ff0055'; else if(skinId==='shield') color = '#00f3ff';
+            ctx.strokeStyle = color; ctx.shadowColor = color; ctx.lineWidth = 2; ctx.fillStyle = isHolo ? 'rgba(0, 10, 20, 0.8)' : '#111';
+            ctx.beginPath(); if(skinId === 'ghost') { ctx.moveTo(20, 0); ctx.lineTo(-20, 20); ctx.lineTo(-10, 0); ctx.lineTo(-20, -20); } else if(skinId === 'neon_rider') { ctx.moveTo(25, 0); ctx.lineTo(-15, 10); ctx.lineTo(-5, 0); ctx.lineTo(-15, -10); } else { ctx.moveTo(24, 0); ctx.lineTo(-16, 16); ctx.lineTo(-6, 0); ctx.lineTo(-16, -16); } ctx.closePath(); ctx.fill(); ctx.stroke();
+            ctx.beginPath(); ctx.arc(-2, 0, 5, 0, Math.PI*2); ctx.fillStyle = (skinId === 'neon_rider') ? '#fff' : '#00f3ff'; ctx.fill();
+            if(hasShield || skinId === 'shield') { ctx.beginPath(); ctx.arc(0, 0, 26, 0, Math.PI*2); ctx.strokeStyle = '#00f3ff'; ctx.stroke(); }
+        }
+
         // --- 다국어 지원 (i18n) ---
         const i18n = {
-            'default': { shop:'🛒 STORE', hangar:'🛠️ HANGAR', research:'🧬 RESEARCH', pass:'🎟️ PILOT PASS', achieve:'🏆 ACHIEVE', rank:'🎖️ RANK', guide:'📖 GUIDE', launch:'🚀 LAUNCH MISSION', settings:'⚙️ SETTINGS', patch:'📜 PATCH NOTES', t_shop:'BLACK MARKET', t_hangar:'HANGAR', t_res:'RESEARCH LAB', t_pass:'PILOT PASS', t_ach:'ACHIEVEMENTS', t_rank:'HALL OF FAME', t_guide:'GAME GUIDE', t_patch:'PATCH NOTES', t_set:'SETTINGS', dia:'보유 다이아:', btn_buy:'구매', btn_eq:'장착됨', btn_eq_do:'장착하기', btn_un:'미보유' },
-            'ko': { shop:'🛒 상점', hangar:'🛠️ 격납고', research:'🧬 연구소', pass:'🎟️ 파일럿 패스', achieve:'🏆 업적', rank:'🎖️ 랭킹', guide:'📖 가이드', launch:'🚀 출격하기', settings:'⚙️ 설정', patch:'📜 패치노트', t_shop:'상 점', t_hangar:'격 납 고', t_res:'연 구 소', t_pass:'파일럿 패스', t_ach:'업 적', t_rank:'명예의 전당', t_guide:'게임 가이드', t_patch:'패치 노트', t_set:'설 정', dia:'보유 다이아:', btn_buy:'구매', btn_eq:'장착됨', btn_eq_do:'장착하기', btn_un:'미보유' }
+            'default': { shop:'🛒 STORE', hangar:'🛠️ HANGAR', research:'🧬 RESEARCH', pass:'🎟️ PILOT PASS', achieve:'🏆 ACHIEVE', rank:'🎖️ RANK', guide:'📖 GUIDE', launch:'🚀 LAUNCH MISSION', settings:'⚙️ SETTINGS', patch:'📜 PATCH NOTES', t_shop:'BLACK MARKET', t_hangar:'HANGAR', t_res:'RESEARCH LAB', t_pass:'PILOT PASS', t_ach:'ACHIEVEMENTS', t_rank:'HALL OF FAME', t_guide:'GAME GUIDE', t_patch:'PATCH NOTES', t_set:'SETTINGS', dia:'보유 다이아:', btn_buy:'구매', btn_eq:'장착됨', btn_eq_do:'장착하기', btn_un:'미보유', bg_eff:'배경 효과 (Background Effects)' },
+            'ko': { shop:'🛒 상점', hangar:'🛠️ 격납고', research:'🧬 연구소', pass:'🎟️ 패스', achieve:'🏆 업적', rank:'🎖️ 랭킹', guide:'📖 가이드', launch:'🚀 출격하기', settings:'⚙️ 설정', patch:'📜 패치노트', t_shop:'상 점', t_hangar:'격 납 고', t_res:'연 구 소', t_pass:'파일럿 패스', t_ach:'업 적', t_rank:'명예의 전당', t_guide:'게임 가이드', t_patch:'패치 노트', t_set:'설 정', dia:'보유 다이아:', btn_buy:'구매', btn_eq:'장착됨', btn_eq_do:'장착하기', btn_un:'미보유', bg_eff:'배경 효과 (Background Effects)' }
         };
 
         const DB = {
@@ -306,11 +341,11 @@
             skins: { 'default': { name:'훈련용 기체', desc:'표준형', stat:'HP 3', price:0 }, 'vip': { name:'골드 이지스', desc:'강화 장갑', stat:'HP 5', price:250 }, 'shield': { name:'가디언 쉴드', desc:'보호막 재생', stat:'HP 3+쉴드', price:400 }, 'ghost': { name:'팬텀 스텔스', desc:'경량화 스텔스', stat:'Speed +2', price:300 }, 'neon_rider': { name:'네온 라이더', desc:'시즌패스 보상', stat:'HP 4, Spd +1', price:99999 } },
             ultimates: { 'overdrive': { name:'오버드라이브', desc:'5초간 공속/공격력 폭증', stat:'버프형', price:0 }, 'blackhole': { name:'블랙홀', desc:'적을 당겨 분쇄', stat:'설치형', price:400 }, 'orbital': { name:'위성 폭격', desc:'화면 전체 레이저', stat:'광역기', price:600 } },
             achievements: { 'kill_100': { name:'초보 사냥꾼', desc:'누적 100킬 달성', title:'초보 사냥꾼' }, 'kill_1000': { name:'우주 파괴자', desc:'누적 1000킬 달성', title:'우주 파괴자' }, 'all_weapons': { name:'웨폰 마스터', desc:'모든 무기 수집', title:'웨폰 마스터' }, 'boss_1hp': { name:'위기탈출', desc:'체력 1칸으로 보스 처치', title:'위기탈출' } },
-            passTiers: [ { req: 100, reward: { type: 'dia', val: 100, name: '100 💎' } }, { req: 300, reward: { type: 'dia', val: 200, name: '200 💎' } }, { req: 600, reward: { type: 'dia', val: 300, name: '300 💎' } }, { req: 1000, reward: { type: 'skin', val: 'neon_rider', name: '네온 라이더 스킨' } } ],
+            passTiers: [ { req: 100, reward: { type: 'dia', val: 100, name: '100 💎' } }, { req: 300, reward: { type: 'dia', val: 200, name: '200 💎' } }, { req: 600, reward: { type: 'dia', val: 300, name: '300 💎' } }, { req: 1000, reward: { type: 'skin', val: 'neon_rider', name: '네온 라이더 스킨', isSkin:true } } ],
             research: { 'hp': { name: '강화 장갑', desc: '최대 체력 +1', costBase: 100, costMult: 1.5, maxLvl: 3 }, 'dmg': { name: '출력 증폭', desc: '기본 데미지 +10%', costBase: 150, costMult: 1.5, maxLvl: 5 }, 'speed': { name: '추진력 향상', desc: '이동 속도 증가', costBase: 100, costMult: 1.5, maxLvl: 5 }, 'crit': { name: '치명타 모듈', desc: '크리티컬 확률 +5%', costBase: 200, costMult: 1.5, maxLvl: 5 }, 'ult': { name: '코어 충전기', desc: '궁극기 충전 속도 증가', costBase: 200, costMult: 1.5, maxLvl: 5 } }
         };
 
-        let defaultUserData = { diamonds: 0, totalKills: 0, skins: ['default'], weapons: ['blaster'], ults: ['overdrive'], achievements: [], passClaimed: [], equipSkin: 'default', equipWeapon: 'blaster', equipUlt: 'overdrive', equipTitle: '', sens: 1.0, research: { hp: 0, dmg: 0, speed: 0, crit: 0, ult: 0 }, leaderboard: [], lang: 'default' };
+        let defaultUserData = { diamonds: 0, totalKills: 0, skins: ['default'], weapons: ['blaster'], ults: ['overdrive'], achievements: [], passClaimed: [], equipSkin: 'default', equipWeapon: 'blaster', equipUlt: 'overdrive', equipTitle: '', sens: 1.0, bgEffects: true, research: { hp: 0, dmg: 0, speed: 0, crit: 0, ult: 0 }, leaderboard: [], lang: 'default' };
         let userData = { ...defaultUserData };
 
         function loadData() { const saved = localStorage.getItem('acePilotSave'); if(saved) { try { userData = { ...defaultUserData, ...JSON.parse(saved) }; } catch(e) {} } }
@@ -323,20 +358,18 @@
         function closeModal(id) { document.getElementById(id).classList.remove('modal-show'); setTimeout(()=>document.getElementById(id).style.display = 'none', 300); }
         function closeSettingModal() { closeModal('settingModal'); }
 
-        // 언어 변경 로직
-        function changeLanguage(val) {
-            userData.lang = val; saveData(); applyLanguage();
-        }
+        function toggleBgEffect(val) { userData.bgEffects = val; saveData(); }
+        function changeLanguage(val) { userData.lang = val; saveData(); applyLanguage(); }
         function applyLanguage() {
             const l = i18n[userData.lang] || i18n['default'];
             document.getElementById('btnShop').innerHTML = `${l.shop}`; document.getElementById('btnHangar').innerHTML = `${l.hangar}`; document.getElementById('btnResearch').innerHTML = `${l.research}`; document.getElementById('btnPass').innerHTML = `${l.pass} <div class="red-dot" id="dotPass"></div>`; document.getElementById('btnAchieve').innerHTML = `${l.achieve} <div class="red-dot" id="dotAchieve"></div>`; document.getElementById('btnRank').innerHTML = `${l.rank}`; document.getElementById('btnGuide').innerHTML = `${l.guide}`; document.getElementById('btnSettingsLobby').innerHTML = `${l.settings}`; document.getElementById('btnPatch').innerHTML = `${l.patch}`; document.getElementById('btnLaunch').innerHTML = `${l.launch}`;
-            document.getElementById('titleShop').innerText = l.t_shop; document.getElementById('titleHangar').innerText = l.t_hangar; document.getElementById('titleResearch').innerText = l.t_res; document.getElementById('titlePass').innerText = l.t_pass; document.getElementById('titleAchieve').innerText = l.t_ach; document.getElementById('titleRank').innerText = l.t_rank; document.getElementById('titleGuide').innerText = l.t_guide; document.getElementById('titlePatch').innerText = l.t_patch; document.getElementById('titleSettings').innerText = l.t_set;
-            document.getElementById('langSelect').value = userData.lang; checkRedDots(); renderShop(); renderHangar(); // UI 갱신
+            document.getElementById('titleShop').innerText = l.t_shop; document.getElementById('titleHangar').innerText = l.t_hangar; document.getElementById('titleResearch').innerText = l.t_res; document.getElementById('titlePass').innerText = l.t_pass; document.getElementById('titleAchieve').innerText = l.t_ach; document.getElementById('titleRank').innerText = l.t_rank; document.getElementById('titleGuide').innerText = l.t_guide; document.getElementById('titlePatch').innerText = l.t_patch; document.getElementById('titleSettings').innerText = l.t_set; document.getElementById('txtBgEff').innerText = l.bg_eff;
+            document.getElementById('langSelect').value = userData.lang; document.getElementById('bgEffectToggle').checked = userData.bgEffects; checkRedDots(); renderShop(); updateSkinPreview(); // UI 갱신
         }
 
         function updateSens(val) { userData.sens = parseFloat(val); document.getElementById('sensValue').innerText = val; saveData(); }
-        function renderSettings() { document.getElementById('sensSlider').value = userData.sens; document.getElementById('sensValue').innerText = userData.sens; document.getElementById('saveDataString').value = ''; }
-        function exportSave() { const str = btoa(encodeURIComponent(JSON.stringify(userData))); document.getElementById('saveDataString').value = str; navigator.clipboard.writeText(str).then(() => alert("클립보드 복사 완료!")).catch(()=>alert("직접 복사하세요.")); }
+        function renderSettings() { document.getElementById('sensSlider').value = userData.sens; document.getElementById('sensValue').innerText = userData.sens; document.getElementById('saveDataString').value = ''; document.getElementById('bgEffectToggle').checked = userData.bgEffects; }
+        function exportSave() { const str = btoa(encodeURIComponent(JSON.stringify(userData))); document.getElementById('saveDataString').value = str; navigator.clipboard.writeText(str).then(() => alert("복사 완료!")).catch(()=>alert("직접 복사하세요.")); }
         function importSave() { const str = document.getElementById('saveDataString').value; if(!str) return; try { const parsed = JSON.parse(decodeURIComponent(atob(str))); if(parsed.diamonds !== undefined) { userData = { ...defaultUserData, ...parsed }; saveData(); applyLanguage(); alert("데이터 불러오기 성공!"); closeSettingModal(); } } catch(e) { alert("해독 실패."); } }
 
         function updateLobbyInfo() { document.getElementById('lobbyTitle').innerText = userData.equipTitle ? `<${userData.equipTitle}>` : '<신입 파일럿>'; document.getElementById('lobbyLevel').innerText = `PILOT LV.${Math.floor(userData.totalKills / 50) + 1}`; }
@@ -346,13 +379,33 @@
         function buyResearch(key, cost) { if(userData.diamonds >= cost) { userData.diamonds -= cost; userData.research[key]++; saveData(); renderResearch(); playSfx('hit'); } else alert("다이아가 부족합니다!"); }
         function renderRank() { const list = document.getElementById('rankList'); list.innerHTML=''; if(userData.leaderboard.length === 0) { list.innerHTML='<p style="color:#aaa; text-align:center;">기록 없음.</p>'; return; } userData.leaderboard.sort((a,b) => b.kills - a.kills).forEach((r, i) => { let color = i===0?'#ffd700':(i===1?'#c0c0c0':(i===2?'#cd7f32':'#fff')); list.innerHTML += `<div class="research-row" style="padding:10px;"><span style="color:${color}; width:40px; font-weight:bold; font-size:1.2rem;">${i+1}위</span><span style="color:#00f3ff; flex:1; font-weight:bold; font-size:1.1rem;">${r.name}</span><span style="color:#fff; font-weight:bold;">${r.kills} Kills <span style="color:#aaa; font-size:0.8rem;">(St.${r.stage})</span></span></div>`; }); }
 
-        function renderShop() { const l=i18n[userData.lang]||i18n['default']; const wList=document.getElementById('shopWeapons'), sList=document.getElementById('shopSkins'), uList=document.getElementById('shopUlts'); wList.innerHTML=''; sList.innerHTML=''; uList.innerHTML=''; const createCard = (type, id, item, isOwned) => { if(isOwned) return ''; return `<div class="item-card"><div><div class="item-name">${item.name}</div><div class="item-desc">${item.desc}</div><div class="item-stat">${item.stat}</div></div><button class="btn-action" onclick="buyItem('${type}', '${id}', ${item.price})">💎 ${item.price} ${l.btn_buy}</button></div>`; }; Object.keys(DB.weapons).forEach(id => wList.innerHTML += createCard('weapon', id, DB.weapons[id], userData.weapons.includes(id))); Object.keys(DB.skins).forEach(id => { if(id!=='neon_rider') sList.innerHTML += createCard('skin', id, DB.skins[id], userData.skins.includes(id)); }); Object.keys(DB.ultimates).forEach(id => uList.innerHTML += createCard('ult', id, DB.ultimates[id], userData.ults.includes(id))); }
+        function renderShop() { const l=i18n[userData.lang]||i18n['default']; const wList=document.getElementById('shopWeapons'), uList=document.getElementById('shopUlts'); wList.innerHTML=''; uList.innerHTML=''; const createCard = (type, id, item, isOwned) => { if(isOwned) return ''; return `<div class="item-card"><div><div class="item-name">${item.name}</div><div class="item-desc">${item.desc}</div><div class="item-stat">${item.stat}</div></div><button class="btn-action" onclick="buyItem('${type}', '${id}', ${item.price})">💎 ${item.price} ${l.btn_buy}</button></div>`; }; Object.keys(DB.weapons).forEach(id => wList.innerHTML += createCard('weapon', id, DB.weapons[id], userData.weapons.includes(id))); Object.keys(DB.ultimates).forEach(id => uList.innerHTML += createCard('ult', id, DB.ultimates[id], userData.ults.includes(id))); }
         function buyItem(type, id, price) { if(userData.diamonds >= price) { userData.diamonds -= price; if(type==='weapon') userData.weapons.push(id); else if(type==='skin') userData.skins.push(id); else userData.ults.push(id); saveData(); renderShop(); if(userData.weapons.length === Object.keys(DB.weapons).length) unlockAchievement('all_weapons'); } }
 
-        function renderHangar() { const l=i18n[userData.lang]||i18n['default']; const wList=document.getElementById('hangarWeapons'), sList=document.getElementById('hangarSkins'), uList=document.getElementById('hangarUlts'), tList=document.getElementById('hangarTitles'); wList.innerHTML=''; sList.innerHTML=''; uList.innerHTML=''; tList.innerHTML=''; const createEqCard = (type, id, item, ownedList, equipId) => { const isOwned = ownedList.includes(id); const isEq = equipId === id; let btnHtml = ''; if(!isOwned) btnHtml = `<button class="btn-action" disabled>${l.btn_un}</button>`; else if(isEq) btnHtml = `<button class="btn-action equipped">${l.btn_eq}</button>`; else btnHtml = `<button class="btn-action owned" onclick="equipItem('${type}', '${id}')">${l.btn_eq_do}</button>`; return `<div class="item-card" style="opacity:${isOwned?1:0.5}; border-color:${isOwned?'#fff':'#333'};"><div><div class="item-name">${item.name}</div><div class="item-stat">${item.stat}</div></div>${btnHtml}</div>`; }; Object.keys(DB.weapons).forEach(id => wList.innerHTML += createEqCard('weapon', id, DB.weapons[id], userData.weapons, userData.equipWeapon)); Object.keys(DB.skins).forEach(id => sList.innerHTML += createEqCard('skin', id, DB.skins[id], userData.skins, userData.equipSkin)); Object.keys(DB.ultimates).forEach(id => uList.innerHTML += createEqCard('ult', id, DB.ultimates[id], userData.ults, userData.equipUlt)); tList.innerHTML += `<div class="item-card"><div><div class="item-name">No Title</div></div><button class="btn-action ${userData.equipTitle===''?'equipped':''}" onclick="equipItem('title', '')">${l.btn_eq_do}</button></div>`; Object.keys(DB.achievements).forEach(id => { const isOwned = userData.achievements.includes(id); const isEq = userData.equipTitle===DB.achievements[id].title; let btnHtml = isOwned ? `<button class="btn-action ${isEq?'equipped':''}" onclick="equipItem('title', '${DB.achievements[id].title}')">${isEq?l.btn_eq:l.btn_eq_do}</button>` : `<button class="btn-action" disabled>${l.btn_un}</button>`; tList.innerHTML += `<div class="item-card" style="opacity:${isOwned?1:0.5};"><div><div class="item-name"><${DB.achievements[id].title}></div></div>${btnHtml}</div>`; }); }
+        // --- 🛠️ 격납고(HANGAR) 리뉴얼 ---
+        let skinKeys = Object.keys(DB.skins); let currentSkinIdx = 0;
+        function renderHangar() { 
+            const l=i18n[userData.lang]||i18n['default']; const wList=document.getElementById('hangarWeapons'), uList=document.getElementById('hangarUlts'), tList=document.getElementById('hangarTitles'); wList.innerHTML=''; uList.innerHTML=''; tList.innerHTML=''; 
+            const createEqCard = (type, id, item, ownedList, equipId) => { const isOwned = ownedList.includes(id); const isEq = equipId === id; let btnHtml = ''; if(!isOwned) btnHtml = `<button class="btn-action" disabled>${l.btn_un}</button>`; else if(isEq) btnHtml = `<button class="btn-action equipped">${l.btn_eq}</button>`; else btnHtml = `<button class="btn-action owned" onclick="equipItem('${type}', '${id}')">${l.btn_eq_do}</button>`; return `<div class="item-card" style="opacity:${isOwned?1:0.5}; border-color:${isOwned?'#fff':'#333'};"><div><div class="item-name">${item.name}</div><div class="item-stat">${item.stat}</div></div>${btnHtml}</div>`; }; 
+            Object.keys(DB.weapons).forEach(id => wList.innerHTML += createEqCard('weapon', id, DB.weapons[id], userData.weapons, userData.equipWeapon)); Object.keys(DB.ultimates).forEach(id => uList.innerHTML += createEqCard('ult', id, DB.ultimates[id], userData.ults, userData.equipUlt)); tList.innerHTML += `<div class="item-card"><div><div class="item-name">No Title</div></div><button class="btn-action ${userData.equipTitle===''?'equipped':''}" onclick="equipItem('title', '')">${l.btn_eq_do}</button></div>`; Object.keys(DB.achievements).forEach(id => { const isOwned = userData.achievements.includes(id); const isEq = userData.equipTitle===DB.achievements[id].title; let btnHtml = isOwned ? `<button class="btn-action ${isEq?'equipped':''}" onclick="equipItem('title', '${DB.achievements[id].title}')">${isEq?l.btn_eq:l.btn_eq_do}</button>` : `<button class="btn-action" disabled>${l.btn_un}</button>`; tList.innerHTML += `<div class="item-card" style="opacity:${isOwned?1:0.5};"><div><div class="item-name"><${DB.achievements[id].title}></div></div>${btnHtml}</div>`; });
+            
+            // 현재 장착중인 스킨을 인덱스로 잡음
+            currentSkinIdx = skinKeys.indexOf(userData.equipSkin); if(currentSkinIdx === -1) currentSkinIdx = 0;
+            updateSkinPreview();
+        }
+        function nextSkin() { currentSkinIdx = (currentSkinIdx+1)%skinKeys.length; updateSkinPreview(); }
+        function prevSkin() { currentSkinIdx = (currentSkinIdx-1+skinKeys.length)%skinKeys.length; updateSkinPreview(); }
+        function updateSkinPreview() {
+            const id = skinKeys[currentSkinIdx]; const item = DB.skins[id]; const isOwned = userData.skins.includes(id); const isEq = userData.equipSkin === id; const l = i18n[userData.lang]||i18n['default'];
+            document.getElementById('hsPreview').innerHTML = `<div style="position:relative;">${getSkinSVG(id, 100)}</div>`;
+            document.getElementById('hsName').innerText = item.name; document.getElementById('hsStat').innerText = item.stat;
+            let btn = document.getElementById('hsBtn');
+            if(!isOwned) { btn.innerText = l.btn_un; btn.className = "btn-action"; btn.disabled = true; } else if(isEq) { btn.innerText = l.btn_eq; btn.className = "btn-action equipped"; btn.disabled = false; } else { btn.innerText = l.btn_eq_do; btn.className = "btn-action owned"; btn.disabled = false; btn.onclick = () => equipItem('skin', id); }
+        }
         function equipItem(type, id) { if(type==='weapon') userData.equipWeapon=id; else if(type==='skin') userData.equipSkin=id; else if(type==='ult') userData.equipUlt=id; else userData.equipTitle=id; saveData(); renderHangar(); }
 
-        function renderPass() { document.getElementById('passKillsText').innerText = `${userData.totalKills} / 1000`; document.getElementById('passFill').style.width = `${Math.min(100, (userData.totalKills/1000)*100)}%`; const tList = document.getElementById('passTiersHorizontal'); tList.innerHTML = ''; DB.passTiers.forEach((tier, index) => { const isClaimed = userData.passClaimed.includes(index); const isReady = !isClaimed && userData.totalKills >= tier.req; tList.innerHTML += `<div class="pass-card ${isClaimed?'unlocked':''}"><div class="pass-req">${tier.req} Kills</div><div class="pass-reward">${tier.reward.name}</div><button class="btn-claim ${isReady?'ready':''}" ${isReady?`onclick="claimPass(${index})"`:'disabled'}>${isClaimed?'완료':'받기'}</button></div>`; }); }
+        // 패스 렌더링 (스킨은 SVG 사용)
+        function renderPass() { document.getElementById('passKillsText').innerText = `${userData.totalKills} / 1000`; document.getElementById('passFill').style.width = `${Math.min(100, (userData.totalKills/1000)*100)}%`; const tList = document.getElementById('passTiersHorizontal'); tList.innerHTML = ''; DB.passTiers.forEach((tier, index) => { const isClaimed = userData.passClaimed.includes(index); const isReady = !isClaimed && userData.totalKills >= tier.req; let rVis = tier.isSkin ? getSkinSVG(tier.reward.val, 60) : `<span style="font-size:1.5rem; color:#ffd700;">${tier.reward.name}</span>`; tList.innerHTML += `<div class="pass-card ${isClaimed?'unlocked':''}"><div class="pass-req">${tier.req} Kills</div><div class="pass-reward">${rVis}</div><button class="btn-claim ${isReady?'ready':''}" ${isReady?`onclick="claimPass(${index})"`:'disabled'}>${isClaimed?'완료':'받기'}</button></div>`; }); }
         function claimPass(idx) { const tier = DB.passTiers[idx]; if(tier.reward.type === 'dia') userData.diamonds += tier.reward.val; else if(tier.reward.type === 'skin') userData.skins.push(tier.reward.val); userData.passClaimed.push(idx); saveData(); renderPass(); }
 
         function renderAchieve() { const list = document.getElementById('achieveList'); list.innerHTML=''; Object.keys(DB.achievements).forEach(id => { const ach = DB.achievements[id]; const isUnl = userData.achievements.includes(id); list.innerHTML += `<div class="item-card" style="border-color:${isUnl?'#ff0055':'#444'};"><div><div class="item-name" style="color:${isUnl?'#fff':'#666'};">${ach.name}</div><div class="item-desc">${ach.desc}</div><div class="item-stat" style="color:#00f3ff;">보상: <${ach.title}></div></div><button class="btn-action ${isUnl?'equipped':'owned'}" disabled>${isUnl?'달성완료':'미달성'}</button></div>`; }); }
@@ -369,45 +422,39 @@
         function triggerWarp() { initAudio(); const intro = document.getElementById('introScreen'); intro.classList.add('warp-active'); setTimeout(() => { intro.style.display = 'none'; intro.classList.remove('warp-active'); document.getElementById('ui-layer').style.display = 'block'; document.getElementById('pauseBtn').style.display = 'block'; startGame(); }, 1000); }
         function respawnToMain() { closeModal('gameOverModal'); closeModal('pauseModal'); document.getElementById('ui-layer').style.display = 'none'; document.getElementById('pauseBtn').style.display = 'none'; document.getElementById('introScreen').style.display = 'block'; updateLobbyInfo(); }
 
-        // --- 🌌 홀로그램 로비 시각 효과 V9.7 (은하수 & 혜성) ---
+        // --- 🌌 홀로그램 로비 시각 효과 V10.0 (배경 옵션 토글 반영) ---
         const holoCanvas = document.getElementById('holoCanvas'); const holoCtx = holoCanvas.getContext('2d');
         let bgStars = [], comets = [], bgShips = [];
-        for(let i=0; i<150; i++) bgStars.push({x: Math.random()*window.innerWidth, y: Math.random()*window.innerHeight, s: Math.random()*1.5, a: Math.random()});
+        for(let i=0; i<150; i++) bgStars.push({x: Math.random()*window.innerWidth, y: Math.random()*window.innerHeight, s: Math.random()*1.5, a: Math.random(), fade: (Math.random()*0.02)+0.005});
         
         function drawHologramLobby() {
             if(document.getElementById('introScreen').style.display === 'none') { requestAnimationFrame(drawHologramLobby); return; }
             holoCanvas.width = window.innerWidth; holoCanvas.height = window.innerHeight;
+            holoCtx.clearRect(0,0,holoCanvas.width, holoCanvas.height);
             
-            // 은하수 배경
-            const mwGrad = holoCtx.createLinearGradient(0, 0, holoCanvas.width, holoCanvas.height);
-            mwGrad.addColorStop(0, 'rgba(15, 0, 35, 1)'); mwGrad.addColorStop(0.5, 'rgba(0, 20, 50, 0.8)'); mwGrad.addColorStop(1, 'rgba(0, 0, 0, 1)');
-            holoCtx.fillStyle = mwGrad; holoCtx.fillRect(0,0, holoCanvas.width, holoCanvas.height);
-            
-            // 반짝이는 별
-            bgStars.forEach(s => { s.a += (Math.random()-0.5)*0.1; if(s.a>1)s.a=1; if(s.a<0.1)s.a=0.1; holoCtx.fillStyle=`rgba(255,255,255,${s.a})`; holoCtx.beginPath(); holoCtx.arc(s.x, s.y, s.s, 0, Math.PI*2); holoCtx.fill(); });
+            if(userData.bgEffects) {
+                // 은하수
+                const mwGrad = holoCtx.createLinearGradient(0, 0, holoCanvas.width, holoCanvas.height); mwGrad.addColorStop(0, 'rgba(15, 0, 35, 1)'); mwGrad.addColorStop(0.5, 'rgba(0, 20, 50, 0.8)'); mwGrad.addColorStop(1, 'rgba(0, 0, 0, 1)');
+                holoCtx.fillStyle = mwGrad; holoCtx.fillRect(0,0, holoCanvas.width, holoCanvas.height);
+                // 반짝이는 별
+                bgStars.forEach(s => { s.a += s.fade; if(s.a>=1 || s.a<=0.1) s.fade *= -1; holoCtx.fillStyle=`rgba(255,255,255,${s.a})`; holoCtx.beginPath(); holoCtx.arc(s.x, s.y, s.s, 0, Math.PI*2); holoCtx.fill(); });
+                // 혜성
+                if(Math.random() < 0.01) comets.push({x: Math.random()*holoCanvas.width*1.5, y: -50, vx: -15-Math.random()*10, vy: 10+Math.random()*10, life: 100});
+                comets.forEach((c,i) => { c.life--; c.x+=c.vx; c.y+=c.vy; holoCtx.beginPath(); holoCtx.moveTo(c.x, c.y); holoCtx.lineTo(c.x-c.vx*3, c.y-c.vy*3); holoCtx.strokeStyle=`rgba(0,243,255,${c.life/100})`; holoCtx.lineWidth=2; holoCtx.stroke(); if(c.life<=0) comets.splice(i,1); });
+                // 우주선
+                if(Math.random() < 0.005) bgShips.push({x: -50, y: Math.random()*holoCanvas.height, vx: 2+Math.random()*2, size: 2+Math.random()*2});
+                bgShips.forEach((s,i) => { s.x += s.vx; holoCtx.fillStyle='rgba(255,255,255,0.5)'; holoCtx.beginPath(); holoCtx.moveTo(s.x, s.y); holoCtx.lineTo(s.x-s.size*3, s.y+s.size); holoCtx.lineTo(s.x-s.size*3, s.y-s.size); holoCtx.fill(); if(s.x > holoCanvas.width+50) bgShips.splice(i,1); });
+            }
 
-            // 혜성 (Comets)
-            if(Math.random() < 0.01) comets.push({x: Math.random()*holoCanvas.width*1.5, y: -50, vx: -15-Math.random()*10, vy: 10+Math.random()*10, life: 100});
-            comets.forEach((c,i) => {
-                c.life--; c.x+=c.vx; c.y+=c.vy;
-                holoCtx.beginPath(); holoCtx.moveTo(c.x, c.y); holoCtx.lineTo(c.x-c.vx*3, c.y-c.vy*3); holoCtx.strokeStyle=`rgba(0,243,255,${c.life/100})`; holoCtx.lineWidth=2; holoCtx.stroke();
-                if(c.life<=0) comets.splice(i,1);
-            });
-
-            // 배경 우주선 (Bg Ships)
-            if(Math.random() < 0.005) bgShips.push({x: -50, y: Math.random()*holoCanvas.height, vx: 2+Math.random()*2, size: 2+Math.random()*2});
-            bgShips.forEach((s,i) => {
-                s.x += s.vx; holoCtx.fillStyle='rgba(255,255,255,0.5)'; holoCtx.beginPath(); holoCtx.moveTo(s.x, s.y); holoCtx.lineTo(s.x-s.size*3, s.y+s.size); holoCtx.lineTo(s.x-s.size*3, s.y-s.size); holoCtx.fill();
-                if(s.x > holoCanvas.width+50) bgShips.splice(i,1);
-            });
-            
-            // 중앙 홀로그램 트릭이
+            // 중앙 홀로그램 (통합 엔진)
             const t = Date.now() * 0.002; const yOff = Math.sin(t) * 15;
             holoCtx.save(); holoCtx.translate(holoCanvas.width/2, holoCanvas.height/2 + yOff - 30); holoCtx.scale(6, 6); holoCtx.rotate(-Math.PI/2);
-            holoCtx.shadowBlur = 20; const s = userData.equipSkin; const color = (s==='vip')?'#ffd700':((s==='ghost')?'#555':((s==='neon_rider')?'#ff0055':'#00f3ff')); holoCtx.shadowColor = color; holoCtx.strokeStyle = color; holoCtx.lineWidth = 2;
-            holoCtx.beginPath(); holoCtx.moveTo(24, 0); holoCtx.lineTo(-16, 16); holoCtx.lineTo(-6, 0); holoCtx.lineTo(-16, -16); holoCtx.closePath(); holoCtx.fillStyle = 'rgba(0, 10, 20, 0.8)'; holoCtx.fill(); holoCtx.stroke();
-            holoCtx.beginPath(); holoCtx.arc(-2, 0, 5, 0, Math.PI*2); holoCtx.fillStyle = '#fff'; holoCtx.fill();
+            holoCtx.shadowBlur = 20; 
+            drawSkinCanvas(holoCtx, userData.equipSkin, true, false); // 일관성 렌더링
+            
+            // 홀로그램 스캔라인
             holoCtx.globalCompositeOperation = 'source-atop'; holoCtx.fillStyle = `rgba(0, 243, 255, ${Math.abs(Math.sin(t*5))*0.1 + 0.1})`; holoCtx.fillRect(-40, -40, 80, 80); holoCtx.restore();
+            // 바닥 빛
             holoCtx.save(); holoCtx.translate(holoCanvas.width/2, holoCanvas.height/2 + 150); holoCtx.scale(1, 0.3); holoCtx.beginPath(); holoCtx.arc(0, 0, 150, 0, Math.PI*2); const grad = holoCtx.createRadialGradient(0,0,50, 0,0,150); grad.addColorStop(0, 'rgba(0, 243, 255, 0.3)'); grad.addColorStop(1, 'rgba(0, 243, 255, 0)'); holoCtx.fillStyle = grad; holoCtx.fill(); holoCtx.restore();
             requestAnimationFrame(drawHologramLobby);
         }
@@ -420,7 +467,7 @@
 
         let player, projectiles=[], enemyProjectiles=[], enemies=[], items=[], blackholes=[], orbitals=[];
 
-        class Player { constructor() { this.x=canvas.width/2; this.y=canvas.height/2; this.radius=20; this.angle=0; const s = userData.equipSkin; const w = userData.equipWeapon; this.maxHealth = ((s==='vip')?5:(s==='neon_rider'?4:3)) + userData.research.hp; this.health = this.maxHealth; this.speed = ((s==='ghost')?8:(s==='neon_rider'?7:6)) + (userData.research.speed * 0.5); this.shield = (s==='shield') ? 1 : 0; this.color = (s==='vip') ? '#ffd700' : ((s==='ghost') ? '#555' : ((s==='neon_rider') ? '#ff0055' : '#fff')); this.wType = w; this.isReloading = false; this.lastShotTime = 0; this.emptyTime = 0; let baseDmg = 0; if(w==='blaster') { baseDmg=0.5; this.maxAmmo=30; this.fireDelay=150; } else if(w==='dual_pistols') { baseDmg=0.4; this.maxAmmo=40; this.fireDelay=120; } else if(w==='laser') { baseDmg=0.6; this.maxAmmo=20; this.fireDelay=100; } else if(w==='shotgun') { baseDmg=0.3; this.maxAmmo=12; this.fireDelay=500; } else if(w==='sniper') { baseDmg=4.0; this.maxAmmo=5; this.fireDelay=1000; } else if(w==='sword') { baseDmg=3.0; this.maxAmmo=1; this.fireDelay=400; } this.damage = baseDmg * (1 + userData.research.dmg * 0.1); this.currentAmmo = this.maxAmmo; } draw() { if(userData.equipTitle) { ctx.fillStyle='#00f3ff'; ctx.font='bold 14px Noto Sans KR'; ctx.textAlign='center'; ctx.fillText(`<${userData.equipTitle}>`, this.x, this.y-this.radius-15); } ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(this.angle); ctx.beginPath(); ctx.moveTo(this.radius*1.2, 0); ctx.lineTo(-this.radius*0.8, this.radius*0.8); ctx.lineTo(-this.radius*0.3, 0); ctx.lineTo(-this.radius*0.8, -this.radius*0.8); ctx.closePath(); ctx.fillStyle = '#111'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = (ultActiveTime>0)?'#ff0055':this.color; ctx.shadowBlur = 10; ctx.shadowColor = ctx.strokeStyle; ctx.stroke(); if(this.shield > 0) { ctx.beginPath(); ctx.arc(0, 0, this.radius+10, 0, Math.PI*2); ctx.strokeStyle = '#00f3ff'; ctx.stroke(); } ctx.restore(); } }
+        class Player { constructor() { this.x=canvas.width/2; this.y=canvas.height/2; this.radius=20; this.angle=0; const s = userData.equipSkin; const w = userData.equipWeapon; this.maxHealth = ((s==='vip')?5:(s==='neon_rider'?4:3)) + userData.research.hp; this.health = this.maxHealth; this.speed = ((s==='ghost')?8:(s==='neon_rider'?7:6)) + (userData.research.speed * 0.5); this.shield = (s==='shield') ? 1 : 0; this.wType = w; this.isReloading = false; this.lastShotTime = 0; this.emptyTime = 0; let baseDmg = 0; if(w==='blaster') { baseDmg=0.5; this.maxAmmo=30; this.fireDelay=150; } else if(w==='dual_pistols') { baseDmg=0.4; this.maxAmmo=40; this.fireDelay=120; } else if(w==='laser') { baseDmg=0.6; this.maxAmmo=20; this.fireDelay=100; } else if(w==='shotgun') { baseDmg=0.3; this.maxAmmo=12; this.fireDelay=500; } else if(w==='sniper') { baseDmg=4.0; this.maxAmmo=5; this.fireDelay=1000; } else if(w==='sword') { baseDmg=3.0; this.maxAmmo=1; this.fireDelay=400; } this.damage = baseDmg * (1 + userData.research.dmg * 0.1); this.currentAmmo = this.maxAmmo; } draw() { if(userData.equipTitle) { ctx.fillStyle='#00f3ff'; ctx.font='bold 14px Noto Sans KR'; ctx.textAlign='center'; ctx.fillText(`<${userData.equipTitle}>`, this.x, this.y-this.radius-15); } ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(this.angle); drawSkinCanvas(ctx, userData.equipSkin, false, this.shield>0); ctx.restore(); } }
         class Projectile { constructor(x, y, angle, type, damage, offsetAngle=0) { this.x=x; this.y=y; this.angle=angle+offsetAngle; this.type=type; this.damage=damage; this.hitSet = new Set(); let speed=20; this.radius=4; this.life=100; if(type==='laser') { speed=30; this.radius=2; this.life=60; } else if(type==='sniper') { speed=40; this.radius=3; } else if(type==='shotgun') { speed=15; } else if(type==='sword') { speed=0; this.life=10; this.radius=45; } this.velocity = { x: Math.cos(this.angle)*speed, y: Math.sin(this.angle)*speed }; if(type==='dual_pistols' && offsetAngle!==0) { const perp=angle+(Math.PI/2); this.x+=Math.cos(perp)*offsetAngle; this.y+=Math.sin(perp)*offsetAngle; } } draw() { if(this.type === 'sword') { ctx.save(); ctx.translate(player.x, player.y); ctx.rotate(player.angle); ctx.beginPath(); ctx.arc(0, 0, this.radius+10, -Math.PI/2, Math.PI/2); ctx.strokeStyle = (ultActiveTime>0)?'#ff0055':'#00ff88'; ctx.lineWidth = 15; ctx.shadowBlur = 20; ctx.shadowColor = ctx.strokeStyle; ctx.stroke(); ctx.restore(); } else if(this.type === 'laser') { ctx.save(); ctx.translate(this.x, this.y); ctx.rotate(this.angle); ctx.fillStyle = (ultActiveTime>0)?'#ff0055':'#00f3ff'; ctx.shadowBlur = 15; ctx.shadowColor = ctx.fillStyle; ctx.fillRect(0, -this.radius, 40, this.radius*2); ctx.restore(); } else { ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2); ctx.fillStyle = (ultActiveTime>0)?'#ff0055':'#fff'; ctx.shadowBlur = 10; ctx.shadowColor = ctx.fillStyle; ctx.fill(); } } update() { this.life--; if(this.type === 'sword') { this.x = player.x; this.y = player.y; } else { this.x += this.velocity.x; this.y += this.velocity.y; } this.draw(); } }
         class EnemyProjectile { constructor(x,y,v,c='#ff0055'){this.x=x;this.y=y;this.velocity=v;this.radius=5;this.color=c;} draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.radius,0,Math.PI*2);ctx.fillStyle=this.color;ctx.shadowBlur=10;ctx.shadowColor=this.color;ctx.fill();} update(){this.draw();this.x+=this.velocity.x;this.y+=this.velocity.y;} }
         class Enemy { constructor(x,y,r,c,v,hp,t,b=false){ this.x=x;this.y=y;this.radius=r;this.color=c;this.velocity=v;this.health=hp;this.maxHealth=hp;this.type=t;this.isBoss=b; this.rotation=0; this.lastShot=Date.now()+Math.random()*2000; this.state='move'; this.stateTimer=Date.now(); } draw(){ this.rotation+=0.02; if(this.type==='elite') { ctx.beginPath(); ctx.arc(this.x, this.y, this.radius+5, 0, Math.PI*2); ctx.strokeStyle='#ffd700'; ctx.lineWidth=2; ctx.stroke(); } if(this.state === 'aim') { ctx.beginPath(); ctx.moveTo(this.x, this.y); ctx.lineTo(player.x, player.y); ctx.strokeStyle='rgba(255,0,0,0.5)'; ctx.lineWidth=2; ctx.setLineDash([5, 5]); ctx.stroke(); ctx.setLineDash([]); } else if(this.state === 'prepare_dash') { ctx.beginPath(); ctx.moveTo(this.x, this.y); ctx.lineTo(this.x+Math.cos(this.dashAngle)*500, this.y+Math.sin(this.dashAngle)*500); ctx.strokeStyle='rgba(255,140,0,0.5)'; ctx.lineWidth=4; ctx.stroke(); } if(this.isBoss) drawPolygon(ctx,this.x,this.y,this.radius,8,this.color,-this.rotation); else if(this.type==='fast' || this.type==='charger') drawPolygon(ctx,this.x,this.y,this.radius,3,this.color,this.rotation); else if(this.type==='tank' || this.type==='elite') drawPolygon(ctx,this.x,this.y,this.radius,6,this.color,this.rotation); else drawPolygon(ctx,this.x,this.y,this.radius,4,this.color,this.rotation); const barW=this.radius*2; const barH=this.isBoss?10:4; ctx.fillStyle='#333'; ctx.fillRect(this.x-this.radius,this.y-this.radius-15,barW,barH); ctx.fillStyle=(this.health/this.maxHealth)>0.4?'#fff':'#ff0055'; ctx.fillRect(this.x-this.radius,this.y-this.radius-15,barW*(this.health/this.maxHealth),barH); } update(){ if(this.isBoss){ this.x+=this.velocity.x; this.y+=this.velocity.y; if(this.x<this.radius)this.velocity.x*=-1; if(this.x>canvas.width-this.radius)this.velocity.x*=-1; if(this.y<this.radius)this.velocity.y*=-1; if(this.y>canvas.height-this.radius)this.velocity.y*=-1; if(Date.now()-this.lastShot>(stage%3===0?800:1500)){ this.lastShot=Date.now(); if(this.state==='phase0'){ const ways=stage%3===0?16:8; for(let i=0;i<ways;i++)enemyProjectiles.push(new EnemyProjectile(this.x,this.y,{x:Math.cos((Math.PI*2/ways)*i)*5,y:Math.sin((Math.PI*2/ways)*i)*5})); this.state='phase1'; }else{ const ang=Math.atan2(player.y-this.y,player.x-this.x); for(let i=-2;i<=2;i++)enemyProjectiles.push(new EnemyProjectile(this.x,this.y,{x:Math.cos(ang+i*0.15)*7,y:Math.sin(ang+i*0.15)*7})); this.state='phase0'; } } }else if(this.type === 'sniper') { if(this.state === 'move') { this.x+=this.velocity.x; this.y+=this.velocity.y; if(Date.now()-this.lastShot > 4000) { this.state='aim'; this.stateTimer=Date.now(); } } else if(this.state === 'aim') { if(Date.now()-this.stateTimer > 1500) { const ang = Math.atan2(player.y - this.y, player.x - this.x); enemyProjectiles.push(new EnemyProjectile(this.x, this.y, {x:Math.cos(ang)*15, y:Math.sin(ang)*15}, '#00f3ff')); this.lastShot = Date.now(); this.state = 'move'; } } }else if(this.type === 'charger') { if(this.state === 'move') { this.x+=this.velocity.x; this.y+=this.velocity.y; if(Date.now()-this.lastShot > 5000) { this.state='prepare_dash'; this.stateTimer=Date.now(); this.dashAngle = Math.atan2(player.y - this.y, player.x - this.x); } } else if(this.state === 'prepare_dash') { if(Date.now()-this.stateTimer > 1000) { this.state='dash'; this.stateTimer=Date.now(); this.dashVel = {x:Math.cos(this.dashAngle)*20, y:Math.sin(this.dashAngle)*20}; } } else if(this.state === 'dash') { this.x+=this.dashVel.x; this.y+=this.dashVel.y; if(Date.now()-this.stateTimer > 400) { this.lastShot = Date.now(); this.state = 'move'; } } }else{ this.x+=this.velocity.x; this.y+=this.velocity.y; } this.draw(); } }
@@ -452,7 +499,8 @@
 
         function animate() {
             if (!gameActive) return; requestAnimationFrame(animate); if (isPaused) return;
-            ctx.fillStyle = '#000'; ctx.fillRect(0, 0, canvas.width, canvas.height); drawGameStars();
+            ctx.fillStyle = '#000'; ctx.fillRect(0, 0, canvas.width, canvas.height); 
+            if(userData.bgEffects) drawGameStars();
             if(screenShake > 0) { ctx.save(); ctx.translate((Math.random()-0.5)*screenShake, (Math.random()-0.5)*screenShake); screenShake--; }
             if(ultActiveTime>0) ultActiveTime--; if (player.wType !== 'sword' && player.currentAmmo === 0 && !player.isReloading && Date.now() - player.emptyTime > 3000) reload();
             let moveX=0, moveY=0; if(keys.a) moveX-=1; if(keys.d) moveX+=1; if(keys.w) moveY-=1; if(keys.s) moveY+=1; if(moveX!==0||moveY!==0) { const len=Math.hypot(moveX,moveY); moveX/=len; moveY/=len; } if(isLeftActive) { moveX=leftVector.x; moveY=leftVector.y; }
